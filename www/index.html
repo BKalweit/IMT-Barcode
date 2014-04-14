@@ -12,6 +12,7 @@
             <div>
                 <p>Hello.</p>
                 <p id="status">Waiting for device...</p>
+                <button onclick="doTest()">Do Test!</button>
             </div>
         </div>
         <script type="text/javascript" src="phonegap.js"></script>
@@ -33,6 +34,21 @@
             };
 
             app.initialize();
+
+            function doTest() {
+                function onSuccess(acceleration) {
+                    alert('Acceleration X: ' + acceleration.x + '\n' +
+                            'Acceleration Y: ' + acceleration.y + '\n' +
+                            'Acceleration Z: ' + acceleration.z + '\n' +
+                            'Timestamp: '      + acceleration.timestamp + '\n');
+                };
+
+                function onError() {
+                    alert('onError!');
+                };
+
+                navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
+            }
         </script>
     </body>
 </html>
