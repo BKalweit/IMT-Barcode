@@ -12,6 +12,9 @@
             <div>
                 <p>Hello.</p>
                 <p id="status">Waiting for device...</p>
+                <p>x: <span id="accelx">-</span></p>
+                <p>y: <span id="accely">-</span></p>
+                <p>z: <span id="accelz">-</span></p>
                 <button onclick="doTest()">Do Test!</button>
             </div>
         </div>
@@ -35,19 +38,34 @@
 
             app.initialize();
 
+            var timeoutHandle = null;
+
             function doTest() {
                 function onSuccess(acceleration) {
-                    alert('Acceleration X: ' + acceleration.x + '\n' +
-                            'Acceleration Y: ' + acceleration.y + '\n' +
-                            'Acceleration Z: ' + acceleration.z + '\n' +
-                            'Timestamp: '      + acceleration.timestamp + '\n');
+
+                    document.getElementById('accelx').innerText = acceleration.x;
+                    document.getElementById('accely').innerText = acceleration.y;
+                    document.getElementById('accelz').innerText = acceleration.z;
+
                 };
 
                 function onError() {
                     alert('onError!');
                 };
 
-                navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
+                if(!timeoutHandle) {
+                    document.getElementById('status').innerText = 'Polling accelerometer data...';
+                    timeoutHandle = setTimeout(function() {
+                        navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
+                    }, 100);
+                } else {
+                    clearTimeout(timeoutHandle);
+                    timeoutHandle = null;
+                    document.getElementById('status').innerText = 'Device is ready.';
+                }
+
+
+
             }
         </script>
     </body>
