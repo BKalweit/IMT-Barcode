@@ -1,3 +1,3 @@
-# PhoneGap Build Starter Application
+# IMT Barcode Application
 
-> Starter app forked from https://github.com/phonegap/phonegap-start
+> Barcode App
