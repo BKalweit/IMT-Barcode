@@ -55,11 +55,11 @@
 
                 if(!timeoutHandle) {
                     document.getElementById('status').innerText = 'Polling accelerometer data...';
-                    timeoutHandle = setTimeout(function() {
+                    timeoutHandle = setInterval(function() {
                         navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
                     }, 100);
                 } else {
-                    clearTimeout(timeoutHandle);
+                    clearInterval(timeoutHandle);
                     timeoutHandle = null;
                     document.getElementById('status').innerText = 'Device is ready.';
                 }
