@@ -26,12 +26,10 @@
         <p>Barcodes</p>
         <p id="status2">-</p>
         <button onclick="scanBarcode1()" style="width: 100px; height: 100px;">Scan Barcode 1</button>
-        <button onclick="scanBarcode2()" style="width: 100px; height: 100px;">Scan Barcode 2</button>
-        <button onclick="scanBarcode3()" style="width: 100px; height: 100px;">Scan Barcode 3</button>
+
     </div>
 </div>
 <script type="text/javascript" src="phonegap.js"></script>
-<script type="text/javascript" src="barcodescanner.js"></script>
 <script type="text/javascript">
 
     var app = {
@@ -82,50 +80,7 @@
 
     function scanBarcode1() {
 
-        if(!this.hasOwnProperty('cordova'))
-            alert('cordova is null');
-        else if(!cordova.plugins.barcodeScanner)
-            alert('barcodeScanner is null');
-
         cordova.plugins.barcodeScanner.scan(
-                function (result) {
-                    alert("We got a barcode\n" +
-                            "Result: " + result.text + "\n" +
-                            "Format: " + result.format + "\n" +
-                            "Cancelled: " + result.cancelled);
-                },
-                function (error) {
-                    alert("Scanning failed: " + error);
-                }
-        );
-
-    }
-
-
-    function scanBarcode2() {
-
-        var scanner = cordova.require("cordova/plugin/BarcodeScanner");
-
-        if(!scanner)
-            alert('scanner is null');
-
-        scanner.scan( function (result) {
-
-            alert("We got a barcode\n" +
-                    "Result: " + result.text + "\n" +
-                    "Format: " + result.format + "\n" +
-                    "Cancelled: " + result.cancelled);
-
-
-        }, function (error) {
-            alert("Scanning failed: ", error);
-        } );
-
-    }
-
-    function scanBarcode3() {
-
-        window.plugins.barcodeScanner.scan(
                 function (result) {
                     alert("We got a barcode\n" +
                             "Result: " + result.text + "\n" +
