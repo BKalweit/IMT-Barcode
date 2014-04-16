@@ -15,7 +15,7 @@
 </head>
 <body>
 <div class="app">
-    <h1>IMT Application 4</h1>
+    <h1>IMT Application 5</h1>
 
     <div>
         <p>Hi.</p>
@@ -104,6 +104,7 @@
                             "Result: " + result.text + "\n" +
                             "Format: " + result.format + "\n" +
                             "Cancelled: " + result.cancelled);
+                    $scope.barcodeValue = result.text;
                 },
                 function (error) {
                     alert("Scanning failed: " + error);
