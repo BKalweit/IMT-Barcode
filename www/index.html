@@ -13,7 +13,7 @@
 </head>
 <body>
 <div class="app">
-    <h1>IMT Application 2</h1>
+    <h1>IMT Application 3</h1>
     <div>
         <p>Hi.</p>
         <p id="status">Waiting for device...</p>
@@ -86,6 +86,8 @@
     function scanBarcode1() {
 
         var scanner =  cordova.require("com.phonegap.plugins.barcodescanner.BarcodeScanner");
+
+        navigator.notification.vibrate(2000);
 
         scanner.scan(
                 function (result) {
