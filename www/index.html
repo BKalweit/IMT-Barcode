@@ -95,8 +95,8 @@
 
         var scanner = cordova.require("com.phonegap.plugins.barcodescanner.BarcodeScanner");
 
-        navigator.notification.vibrate(2000);
-        $scope.barcodeValue = "inititial";
+        navigator.notification.vibrate(1000);
+//        $scope.barcodeValue = "inititial";
 
         scanner.scan(
                 function (result) {
