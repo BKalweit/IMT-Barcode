@@ -66,6 +66,8 @@
 
         function onError() {
             alert('onError!');
+            navigator.notification.vibrate(2000);
+
         };
 
         if(!timeoutHandle) {
