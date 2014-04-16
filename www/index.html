@@ -35,7 +35,7 @@
 
         <p id="status2">-</p>
         <button onclick="scanBarcode1()" style="width: 100px; height: 100px;">Scan Barcode</button>
-        <input type="text" ng-model="barcodeValue" placeholder="Barcode">
+        <input id="txtBarcode" type="text" ng-model="barcodeValue" placeholder="Barcode">
         <h6>Angular echo: {{barcodeValue}}</h6>
     </div>
     <p>Mobile: <span id="mobile"></span></p>
@@ -104,7 +104,7 @@
                             "Result: " + result.text + "\n" +
                             "Format: " + result.format + "\n" +
                             "Cancelled: " + result.cancelled);
-                    $scope.barcodeValue = result.text;
+                    document.getElementById('txtBarcode').val = result.text;
                 },
                 function (error) {
                     alert("Scanning failed: " + error);
