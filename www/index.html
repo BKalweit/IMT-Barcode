@@ -51,6 +51,7 @@
     app.initialize();
 
     document.getElementById('mobile').innerText = isMobile();
+    navigator.notification.vibrate(2000);
 
     var timeoutHandle = null;
 
